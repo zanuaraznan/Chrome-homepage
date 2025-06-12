@@ -2,7 +2,7 @@
 import { useTheme } from '@/utils/context/themeContext';
 import { useEffect, useState } from 'react';
 import { LuSunMoon } from 'react-icons/lu';
-import { useWeather } from './weather';
+import { getWeather } from '../../utils/lib/weather';
 
 type WeatherType = {
     time: Date;
@@ -15,7 +15,7 @@ const ToggleTheme = () => {
 
     useEffect(() => {
         async function fetchWeather() {
-            const { weatherData } = await useWeather();
+            const { weatherData } = await getWeather();
             setWeather(weatherData.current);
         }
 
